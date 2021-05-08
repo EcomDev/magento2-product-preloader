@@ -40,7 +40,9 @@ class LoadService
     }
 
     /**
-     * Checks if SKU is assigned
+     * Returns mapped ID to a provided SKU
+     *
+     * When SKU is not found it returns null
      *
      * @param string $sku
      * @return int|null
@@ -104,7 +106,7 @@ class LoadService
                 $this->skuToId[$adapter->getSku()] = $productId;
             }
 
-            $this->storage[$code] += $defaultData + $loader->load($filter, $productsToLoad);
+            $this->storage[$code] += $loader->load($filter, $productsToLoad) + $defaultData;
         }
     }
 }
