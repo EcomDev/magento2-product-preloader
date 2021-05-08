@@ -11,7 +11,7 @@ Right now it supports 3 types of loaded product collections:
 
 In order to pre-load data for a product collection, you need to implement `EcomDev\ProductDataPreLoader\DataService\DataLoader` interface with such methods: 
 - `isApplicable(string $type): bool` method that is used to decide if your loader compatible with specific product collection type.
-- `load(ScopeFilter $filter, ProductAdapter[] $products): array` method that preloads data into `LoadService` that can be used later to access data by your loader id.
+- `load(ScopeFilter $filter, ProductWrapper[] $products): array` method that preloads data into `LoadService` that can be used later to access data by your loader id.
 
 
 Custom loaders should be added to `LoadService` object via DI configuration like this:
