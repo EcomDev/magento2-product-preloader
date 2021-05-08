@@ -46,7 +46,8 @@ class MagentoScopeFilter implements ScopeFilter
      */
     public function getWebsiteId(): int
     {
-        return (int)($this->options['website_id'] ?? $this->storeManager->getStore($this->getStoreId())->getWebsiteId());
+        return (int)($this->options['website_id']
+            ?? $this->storeManager->getStore($this->getStoreId())->getWebsiteId());
     }
 
     /**

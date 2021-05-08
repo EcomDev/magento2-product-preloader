@@ -53,8 +53,7 @@ class CustomerGroupProvider
         if ($this->sessionChecker->check()) {
             try {
                 return $this->customerSession->getCustomerGroupId();
-            }
-            catch (NoSuchEntityException | LocalizedException $e) {
+            } catch (NoSuchEntityException | LocalizedException $e) {
                 return 0;
             }
         }

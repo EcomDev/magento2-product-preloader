@@ -47,8 +47,7 @@ class ProductAfterLoad implements ObserverInterface
         LoadService $loadService,
         ScopeFilterFactory $filterFactory,
         MagentoProductWrapperFactory $productAdapterFactory
-    )
-    {
+    ) {
         $this->loadService = $loadService;
         $this->filterFactory = $filterFactory;
         $this->productAdapterFactory = $productAdapterFactory;

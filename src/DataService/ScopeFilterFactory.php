@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace EcomDev\ProductDataPreLoader\DataService;
 
-
 use Magento\Catalog\Model\ResourceModel\Product\Collection\ProductLimitation;
 use Magento\Framework\ObjectManagerInterface;
 use Magento\Quote\Api\Data\CartInterface;

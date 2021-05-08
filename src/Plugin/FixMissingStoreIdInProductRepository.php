@@ -28,11 +28,15 @@ class FixMissingStoreIdInProductRepository
      * @param bool $forceReload
      *
      * @return array
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function beforeGetById(ProductRepository $subject, $productId, $editMode = false, $storeId = null, $forceReload = false)
-    {
-        if ($storeId !== null) {
+    public function beforeGetById(
+        ProductRepository $subject,
+        $productId,
+        $editMode = false,
+        $storeId = null,
+        $forceReload = false
+    ): array {
+        if ($storeId != null) {
             $this->productStoreIds[$productId] = $storeId;
         }
 

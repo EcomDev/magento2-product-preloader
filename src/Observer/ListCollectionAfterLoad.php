@@ -68,8 +68,7 @@ class ListCollectionAfterLoad implements ObserverInterface
         LoadService $loadService,
         ScopeFilterFactory $filterFactory,
         ProductAdapterFactory $adapterFactory
-    )
-    {
+    ) {
         $this->loadService = $loadService;
         $this->filterFactory = $filterFactory;
         $this->adapterFactory = $adapterFactory;
