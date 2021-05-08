@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\CatalogInventory\Observer\AddInventoryDataObserver">
+        <plugin name="after_product_load" type="EcomDev\ProductDataPreLoader\Observer\ProductAfterLoad" />
+    </type>
+
+    <type name="Magento\Catalog\Model\ProductRepository">
+        <plugin name="fix_store_id_of_get_by_id" type="EcomDev\ProductDataPreLoader\Plugin\FixMissingStoreIdInProductRepository" />
+    </type>
+
+    <type name="Magento\Quote\Model\ResourceModel\Quote\Item\Collection">
+        <plugin name="preserve_quote_for_item_collection" type="EcomDev\ProductDataPreLoader\Plugin\StoreShoppingCartIntoObserver"  />
+    </type>
+</config>

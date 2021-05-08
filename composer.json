@@ -1,0 +1,30 @@
+{
+  "name": "ecomdev/magento2-product-data-preloader",
+  "version": "1.0.0",
+  "description": "Magento 2 Product Data Pre-Loader FTW",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-catalog": "~103.0|~104.0",
+    "magento/module-quote": "~101.0",
+    "magento/module-customer": "~102.0|~103.0",
+    "php": "~7.2"
+  },
+  "license": [
+    "MIT"
+  ],
+  "repositories": {
+    "magento": {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  },
+  "autoload": {
+    "files": [
+        "src/registration.php"
+    ],
+    "psr-4": {
+      "EcomDev\\ProductDataPreLoader\\": "src"
+    }
+  }
+}
