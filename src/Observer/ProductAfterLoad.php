@@ -72,7 +72,7 @@ class ProductAfterLoad implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        /** @var Product $product */
+        /* @var Product $product */
         $product = $observer->getData('product');
 
 

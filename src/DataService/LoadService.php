@@ -13,16 +13,22 @@ namespace EcomDev\ProductDataPreLoader\DataService;
 class LoadService
 {
     /**
+     * Storage for preloaded data
+     *
      * @var array
      */
     private $storage = [];
 
     /**
+     * Mapping of SKU to ids
+     *
      * @var array
      */
     private $skuToId = [];
 
     /**
+     * List of registered data loaders by code
+     *
      * @var DataLoader[]
      */
     private $loaders;
@@ -45,6 +51,7 @@ class LoadService
      * When SKU is not found it returns null
      *
      * @param string $sku
+     *
      * @return int|null
      */
     public function skuToId(string $sku): ?int
@@ -58,6 +65,7 @@ class LoadService
      *
      * @param int $productId
      * @param string $type
+     *
      * @return bool
      */
     public function has(int $productId, string $type): bool
@@ -70,6 +78,7 @@ class LoadService
      *
      * @param int $productId
      * @param string $type
+     *
      * @return array
      */
     public function get(int $productId, string $type): array

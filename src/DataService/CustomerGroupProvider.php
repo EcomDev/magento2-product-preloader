@@ -13,7 +13,6 @@ use Magento\Customer\Model\Session;
 
 /**
  * Customer group provider for dynamic resolution of it
- *
  */
 class CustomerGroupProvider
 {

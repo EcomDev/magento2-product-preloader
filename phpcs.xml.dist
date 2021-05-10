@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ruleset name="Compiler">
+    <description>The coding standard for EcomDev packages.</description>
+
+    <file>src</file>
+
+    <arg value="np"/>
+
+    <!-- Include some additional sniffs from the Generic standard -->
+    <rule ref="Generic.Commenting.DocComment"/>
+
+    <!-- Use Unix newlines -->
+    <rule ref="Generic.Files.LineEndings">
+      <properties>
+         <property name="eolChar" value="\n"/>
+      </properties>
+    </rule>
+
+    <rule ref="PSR2"/>
+    <rule ref="PSR2"/>
+</ruleset>

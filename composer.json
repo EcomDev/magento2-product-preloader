@@ -32,8 +32,8 @@
     }
   },
   "scripts": {
-    "phpcs": "phpcs --standard=PSR1,PSR2 src/",
-    "phpcbf": "phpcbf --standard=PSR1,PSR2 src/",
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf",
     "phpstan": "phpstan analyze src"
   }
 }

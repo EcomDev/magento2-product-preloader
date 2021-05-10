@@ -12,6 +12,8 @@ use Magento\Catalog\Model\ProductRepository;
 class FixMissingStoreIdInProductRepository
 {
     /**
+     * List of known store ids for a product
+     *
      * @var string[]
      */
     private $productStoreIds = [];
@@ -22,7 +24,7 @@ class FixMissingStoreIdInProductRepository
      * Helps to prevent double load of the same product by other extensions
      *
      * @param ProductRepository $subject
-     * @param $productId
+     * @param string|int $productId
      * @param bool $editMode
      * @param null $storeId
      * @param bool $forceReload

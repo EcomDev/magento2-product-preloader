@@ -33,6 +33,7 @@ class StoreShoppingCartIntoObserver
      *
      * @param Collection $subject
      * @param CartInterface $cart
+     *
      * @return CartInterface[]
      */
     public function beforeSetQuote(Collection $subject, CartInterface $cart)

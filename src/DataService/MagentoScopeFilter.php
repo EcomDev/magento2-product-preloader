@@ -15,19 +15,33 @@ use Magento\Store\Model\StoreManagerInterface;
 class MagentoScopeFilter implements ScopeFilter
 {
     /**
+     * Provider of the customer group
+     *
      * @var CustomerGroupProvider
      */
     private $customerGroupProvider;
+
     /**
+     * Store manager interface
+     *
      * @var StoreManagerInterface
      */
     private $storeManager;
 
     /**
+     * List of provided filter options
+     *
      * @var array
      */
     private $options;
 
+    /**
+     * MagentoScopeFilter constructor.
+     *
+     * @param CustomerGroupProvider $customerGroupProvider
+     * @param StoreManagerInterface $storeManager
+     * @param array $options
+     */
     public function __construct(
         CustomerGroupProvider $customerGroupProvider,
         StoreManagerInterface $storeManager,
@@ -39,10 +53,9 @@ class MagentoScopeFilter implements ScopeFilter
         $this->options = $options;
     }
 
+
     /**
-     * Scope of the filtered data to be loaded
-     *
-     * @return int
+     * {@inheritDoc}
      */
     public function getWebsiteId(): int
     {
@@ -51,9 +64,7 @@ class MagentoScopeFilter implements ScopeFilter
     }
 
     /**
-     * Store ID scope of data to be loaded
-     *
-     * @return int
+     * {@inheritDoc}
      */
     public function getStoreId(): int
     {
@@ -61,9 +72,7 @@ class MagentoScopeFilter implements ScopeFilter
     }
 
     /**
-     * Returns true if customer group has been explicitly set
-     *
-     * @return bool
+     * {@inheritDoc}
      */
     public function hasCustomerGroupId(): bool
     {
@@ -71,13 +80,7 @@ class MagentoScopeFilter implements ScopeFilter
     }
 
     /**
-     * Returns currently applied customer group
-     *
-     * Call this method only if your functionality relies on a customer group to provide functionality
-     *
-     * Otherwise check for hasCustomerGroup() call to make sure you only filter if customer group filter is set
-     *
-     * @return int
+     * {@inheritDoc}
      */
     public function getCustomerGroupId(): int
     {
@@ -85,9 +88,7 @@ class MagentoScopeFilter implements ScopeFilter
     }
 
     /**
-     * Returns a cache for grouping data loaders together
-     *
-     * @return string
+     * {@inheritDoc}
      */
     public function getCacheKey(): string
     {

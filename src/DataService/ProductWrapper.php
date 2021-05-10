@@ -32,15 +32,18 @@ interface ProductWrapper
      * Check if product is of a type
      *
      * @param string ...$type
+     *
      * @return bool
      */
     public function isType(string ...$type): bool;
 
     /**
-     * Updates field in wrapped product
+     * Updates field in a wrapped product
      *
      * @param string $fieldName
-     * @param $value
+     * @param mixed $value
+     *
+     * @return void
      */
     public function updateField(string $fieldName, $value): void;
 }

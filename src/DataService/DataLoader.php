@@ -24,6 +24,7 @@ interface DataLoader
      *
      * @param ScopeFilter $filter
      * @param ProductWrapper[] $products
+     *
      * @return array
      */
     public function load(ScopeFilter $filter, array $products): array;
@@ -32,6 +33,7 @@ interface DataLoader
      * Checks if the preloader is applicable for this type of data.
      *
      * @param string $type
+     *
      * @return bool
      */
     public function isApplicable(string $type): bool;

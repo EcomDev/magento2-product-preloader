@@ -69,7 +69,7 @@ class CartCollectionAfterLoad implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        /** @var Collection $collection */
+        /* @var Collection $collection */
         $collection = $observer->getData('collection');
 
         if (!$collection instanceof Collection) {

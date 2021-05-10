@@ -13,7 +13,6 @@ use Magento\Quote\Api\Data\CartInterface;
 
 /**
  * Scope filter factory
- *
  */
 class ScopeFilterFactory
 {
@@ -38,6 +37,7 @@ class ScopeFilterFactory
      * Create scope filter from shopping cart
      *
      * @param CartInterface $cart
+     *
      * @return MagentoScopeFilter
      */
     public function createFromCart(CartInterface $cart): MagentoScopeFilter
@@ -54,6 +54,7 @@ class ScopeFilterFactory
      * Create scope filter from store identifier
      *
      * @param int $storeId
+     *
      * @return MagentoScopeFilter
      */
     public function createFromStore(int $storeId): MagentoScopeFilter
@@ -70,6 +71,7 @@ class ScopeFilterFactory
      *
      * @param int $storeId
      * @param ProductLimitation $productLimitation
+     *
      * @return MagentoScopeFilter
      */
     public function createFromLimitation(int $storeId, ProductLimitation $productLimitation): MagentoScopeFilter

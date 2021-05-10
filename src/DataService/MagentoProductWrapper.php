@@ -14,6 +14,8 @@ use Magento\Catalog\Model\Product;
 class MagentoProductWrapper implements ProductWrapper
 {
     /**
+     * Wrapped product model
+     *
      * @var Product
      */
     private $product;
@@ -29,19 +31,16 @@ class MagentoProductWrapper implements ProductWrapper
     }
 
     /**
-     * Returns product SKU
-     *
-     * @return string
+     * {@inheritDoc}
      */
     public function getSku(): string
     {
         return $this->product->getSku();
     }
 
+
     /**
-     * Returns product ID
-     *
-     * @return int
+     * {@inheritDoc}
      */
     public function getId(): int
     {
@@ -49,10 +48,7 @@ class MagentoProductWrapper implements ProductWrapper
     }
 
     /**
-     * Check if product is of a type
-     *
-     * @param string ...$type
-     * @return bool
+     * {@inheritDoc}
      */
     public function isType(string ...$type): bool
     {
@@ -60,10 +56,7 @@ class MagentoProductWrapper implements ProductWrapper
     }
 
     /**
-     * Updates field in wrapped product
-     *
-     * @param string $fieldName
-     * @param $value
+     * {@inheritDoc}
      */
     public function updateField(string $fieldName, $value): void
     {

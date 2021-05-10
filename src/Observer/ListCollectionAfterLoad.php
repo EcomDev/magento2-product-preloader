@@ -25,7 +25,7 @@ class ListCollectionAfterLoad implements ObserverInterface
     /**
      * Override of current scope filter
      *
-     * @var ScopeFilter
+     * @var ScopeFilter|null
      */
     private $currentScope;
 
@@ -91,11 +91,11 @@ class ListCollectionAfterLoad implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        /** @var Collection $collection */
+        /* @var Collection $collection */
         $collection = $observer->getData('collection');
 
         $productInfo = [];
-        /** @var ProductInterface $product */
+        /* @var ProductInterface $product */
         foreach ($collection->getItems() as $product) {
             $productInfo[(int)$product->getId()] = $this->adapterFactory->create(['product' => $product]);
         }
