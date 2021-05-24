@@ -9,11 +9,12 @@ namespace EcomDev\ProductDataPreLoader\Observer;
 
 use EcomDev\ProductDataPreLoader\DataService\DataLoader;
 use EcomDev\ProductDataPreLoader\DataService\LoadService;
-use EcomDev\ProductDataPreLoader\DataService\ProductAdapterFactory;
+use EcomDev\ProductDataPreLoader\DataService\MagentoProductWrapperFactory;
 use EcomDev\ProductDataPreLoader\DataService\ScopeFilter;
 use EcomDev\ProductDataPreLoader\DataService\ScopeFilterFactory;
-use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Collection;
+
+use Magento\Catalog\Model\Product;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 
@@ -53,7 +54,7 @@ class ListCollectionAfterLoad implements ObserverInterface
     /**
      * Factory for creating product adapters
      *
-     * @var ProductAdapterFactory
+     * @var MagentoProductWrapperFactory
      */
     private $adapterFactory;
 
@@ -62,12 +63,12 @@ class ListCollectionAfterLoad implements ObserverInterface
      *
      * @param LoadService $loadService
      * @param ScopeFilterFactory $filterFactory
-     * @param ProductAdapterFactory $adapterFactory
+     * @param MagentoProductWrapperFactory $adapterFactory
      */
     public function __construct(
         LoadService $loadService,
         ScopeFilterFactory $filterFactory,
-        ProductAdapterFactory $adapterFactory
+        MagentoProductWrapperFactory $adapterFactory
     ) {
         $this->loadService = $loadService;
         $this->filterFactory = $filterFactory;
@@ -95,9 +96,9 @@ class ListCollectionAfterLoad implements ObserverInterface
         $collection = $observer->getData('collection');
 
         $productInfo = [];
-        /* @var ProductInterface $product */
+        /* @var Product $product */
         foreach ($collection->getItems() as $product) {
-            $productInfo[(int)$product->getId()] = $this->adapterFactory->create(['product' => $product]);
+            $productInfo[(int)$product->getId()] = $this->adapterFactory->create($product);
         }
 
         $type = DataLoader::TYPE_OTHER;

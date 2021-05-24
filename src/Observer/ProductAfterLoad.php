@@ -83,7 +83,7 @@ class ProductAfterLoad implements ObserverInterface
         $scope = $this->filterFactory->createFromStore($product->getStoreId());
         $type = DataLoader::TYPE_CART;
 
-        $adapter = $this->productAdapterFactory->create(['product' => $product]);
+        $adapter = $this->productAdapterFactory->create($product);
 
         $productInfo = [
             $product->getId() => $adapter

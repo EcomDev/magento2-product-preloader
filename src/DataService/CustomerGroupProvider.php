@@ -19,7 +19,7 @@ class CustomerGroupProvider
     /**
      * Customer session instance
      *
-     * @var Session\Proxy
+     * @var Session
      */
     private $customerSession;
 
@@ -33,10 +33,10 @@ class CustomerGroupProvider
     /**
      * CustomerGroupProvider constructor.
      *
-     * @param Session\Proxy $customerSession
+     * @param Session $customerSession
      * @param SessionStartChecker $sessionChecker
      */
-    public function __construct(Session\Proxy $customerSession, SessionStartChecker $sessionChecker)
+    public function __construct(Session $customerSession, SessionStartChecker $sessionChecker)
     {
         $this->customerSession = $customerSession;
         $this->sessionChecker = $sessionChecker;

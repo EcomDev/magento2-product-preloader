@@ -7,4 +7,10 @@
             <argument name="loaders" xsi:type="array" />
         </arguments>
     </type>
+
+    <type name="EcomDev\ProductDataPreLoader\DataService\CustomerGroupProvider">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
 </config>
