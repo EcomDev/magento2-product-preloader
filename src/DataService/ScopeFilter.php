@@ -43,11 +43,4 @@ interface ScopeFilter
      * @return int
      */
     public function getCustomerGroupId(): int;
-
-    /**
-     * Returns a cache for grouping data loaders together
-     *
-     * @return string
-     */
-    public function getCacheKey(): string;
 }

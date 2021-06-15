@@ -86,18 +86,4 @@ class MagentoScopeFilter implements ScopeFilter
     {
         return (int)($this->options['group_id'] ?? $this->customerGroupProvider->getCustomerGroupId());
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCacheKey(): string
-    {
-        $customerGroupId = 0;
-
-        if ($this->hasCustomerGroupId()) {
-            $customerGroupId = $this->getCustomerGroupId();
-        }
-
-        return sprintf('%d-%d-%d', $this->getWebsiteId(), $customerGroupId, $this->getStoreId());
-    }
 }

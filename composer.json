@@ -34,7 +34,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "EcomDev\\ProductDataPreLoader\\": "tests"
+      "EcomDev\\ProductDataPreLoader\\": ["tests/unit", "tests/util"]
     }
   },
   "scripts": {

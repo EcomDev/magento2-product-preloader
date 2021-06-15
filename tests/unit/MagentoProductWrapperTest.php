@@ -80,6 +80,7 @@ class MagentoProductWrapperTest extends TestCase
      */
     private function createProduct(array $data = []): Product
     {
+        /** @var Product $product */
         $product = (new FakeObjectManager())->get(Product::class);
         $product->setData($data);
 
