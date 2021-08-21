@@ -25,3 +25,10 @@ Custom loaders should be added to `LoadService` object via DI configuration like
     </arguments>
 </type>
 ```
+
+## Installation
+
+Given EOL of Composer 1 all new packagist packages are not published for some time. So best way to keep your install up-to-date is to use Composer 2.0.
+```bash
+composer require ecomdev/magento2-product-data-preloader
+```
