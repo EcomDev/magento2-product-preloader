@@ -101,23 +101,29 @@ class ListCollectionAfterLoad implements ObserverInterface
             $productInfo[(int)$product->getId()] = $this->adapterFactory->create($product);
         }
 
-        $type = DataLoader::TYPE_OTHER;
+        list($type, $scope) = $this->detectScopeFilterAndType($collection);
+
+        $this->loadService->load($type, $scope, $productInfo);
+    }
+
+    public function detectScopeFilterAndType(Collection $collection): array
+    {
+        if (isset($this->currentScope) && isset($this->currentType)) {
+            $type = $this->currentType;
+            $scope = $this->currentScope;
+            unset($this->currentScope, $this->currentType);
+            return [$type, $scope];
+        }
+
         $scope = $this->filterFactory->createFromLimitation(
             (int)$collection->getStoreId(),
             $collection->getLimitationFilters()
         );
 
         if ($collection->getLimitationFilters()->isUsingPriceIndex()) {
-            $type = DataLoader::TYPE_LIST;
+            return [DataLoader::TYPE_LIST, $scope];
         }
 
-        if ($this->currentScope && $this->currentType) {
-            $type = $this->currentType;
-            $scope = $this->currentScope;
-            $this->currentScope = null;
-            $this->currentType = null;
-        }
-
-        $this->loadService->load($type, $scope, $productInfo);
+        return [DataLoader::TYPE_OTHER, $scope];
     }
 }

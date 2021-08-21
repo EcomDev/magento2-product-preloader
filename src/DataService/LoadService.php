@@ -95,6 +95,10 @@ class LoadService
      */
     public function load(string $type, ScopeFilter $filter, array $products)
     {
+        foreach ($products as $productId => $adapter) {
+            $this->skuToId[$adapter->getSku()] = $productId;
+        }
+
         foreach ($this->loaders as $code => $loader) {
             if (!$loader->isApplicable($type)) {
                 continue;
@@ -110,11 +114,6 @@ class LoadService
             }
 
             $defaultData = array_fill_keys(array_keys($productsToLoad), []);
-
-            foreach ($productsToLoad as $productId => $adapter) {
-                $this->skuToId[$adapter->getSku()] = $productId;
-            }
-
             $this->storage[$code] += $loader->load($filter, $productsToLoad) + $defaultData;
         }
     }

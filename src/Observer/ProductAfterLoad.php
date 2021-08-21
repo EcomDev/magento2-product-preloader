@@ -75,7 +75,6 @@ class ProductAfterLoad implements ObserverInterface
         /* @var Product $product */
         $product = $observer->getData('product');
 
-
         if (empty($product->getId())) {
             return;
         }

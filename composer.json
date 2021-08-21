@@ -1,6 +1,5 @@
 {
   "name": "ecomdev/magento2-product-data-preloader",
-  "version": "1.0.0",
   "description": "Magento 2 Product Data Pre-Loader FTW",
   "type": "magento2-module",
   "require": {
@@ -13,7 +12,8 @@
   "require-dev": {
     "phpstan/phpstan": "^0.12.86",
     "squizlabs/php_codesniffer": "^3.6.0",
-    "phpunit/phpunit": "~8.5.15"
+    "phpunit/phpunit": "~8.5.15",
+    "ecomdev/magento2-test-essentials": "dev-main"
   },
   "license": [
     "MIT"

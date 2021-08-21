@@ -9,6 +9,13 @@ namespace EcomDev\ProductDataPreLoader\Plugin;
 
 use Magento\Catalog\Model\ProductRepository;
 
+/**
+ * Some extensions call product repository within a page without store id
+ *
+ * This happens in most cases on product view pages after original repsitory with store id was performed.
+ * Omitting store_id from a call results in diverging cache key so we walk around it by storing store id for product
+ * and re-using it when none specified.
+ */
 class FixMissingStoreIdInProductRepository
 {
     /**

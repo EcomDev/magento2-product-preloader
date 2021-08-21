@@ -45,7 +45,7 @@ class ScopeFilterFactory
         return $this->objectManager->create(MagentoScopeFilter::class, [
             'options' => [
                 'store_id' => $cart->getStoreId(),
-                'customer_group_id' => $cart->getCustomerIsGuest() ? 0 : $cart->getCustomer()->getGroupId()
+                'group_id' => $cart->getCustomerIsGuest() ? 0 : $cart->getCustomer()->getGroupId()
             ]
         ]);
     }
@@ -82,7 +82,7 @@ class ScopeFilterFactory
 
         if ($productLimitation->isUsingPriceIndex()) {
             $options['website_id'] = $productLimitation->getWebsiteId();
-            $options['customer_group_id'] = $productLimitation->getCustomerGroupId();
+            $options['group_id'] = $productLimitation->getCustomerGroupId();
         }
 
         return $this->objectManager->create(MagentoScopeFilter::class, [

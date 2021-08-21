@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace EcomDev\ProductDataPreLoader;
 
-
-use Magento\Customer\Api\Data\CustomerInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Quote\Api\Data\CurrencyInterface;
 
@@ -39,6 +37,8 @@ class FakeShoppingCart implements CartInterface
     {
         if ($customerData) {
             $data['customer'] = FakeCustomer::fromData($customerData);
+        } else {
+            $data['customer'] = FakeCustomer::fromData([]);
         }
 
         return new self($data);

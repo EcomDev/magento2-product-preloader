@@ -2,6 +2,7 @@
 
 namespace EcomDev\ProductDataPreLoader;
 
+use EcomDev\Magento2TestEssentials\ObjectManager;
 use EcomDev\ProductDataPreLoader\DataService\MagentoProductWrapperFactory;
 use Magento\Catalog\Model\Product;
 use PHPUnit\Framework\TestCase;
@@ -17,7 +18,7 @@ class MagentoProductWrapperTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->factory = new MagentoProductWrapperFactory(new FakeObjectManager());
+        $this->factory = new MagentoProductWrapperFactory(ObjectManager::new());
     }
 
     /** @test */
@@ -80,8 +81,8 @@ class MagentoProductWrapperTest extends TestCase
      */
     private function createProduct(array $data = []): Product
     {
-        /** @var Product $product */
-        $product = (new FakeObjectManager())->get(Product::class);
+        /* @var Product $product */
+        $product = ObjectManager::new()->get(Product::class);
         $product->setData($data);
 
         return $product;

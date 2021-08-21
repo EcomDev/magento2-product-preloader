@@ -8,7 +8,9 @@
         </arguments>
     </type>
 
-    <type name="EcomDev\ProductDataPreLoader\DataService\CustomerGroupProvider">
+    <preference for="EcomDev\ProductDataPreLoader\DataService\CustomerGroupProvider" type="EcomDev\ProductDataPreLoader\DataService\SessionCustomerGroupProvider" />
+
+    <type name="EcomDev\ProductDataPreLoader\DataService\SessionCustomerGroupProvider">
         <arguments>
             <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
         </arguments>
