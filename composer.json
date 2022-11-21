@@ -7,12 +7,12 @@
     "magento/module-catalog": "~103.0|~104.0",
     "magento/module-quote": "~101.0",
     "magento/module-customer": "~102.0|~103.0",
-    "php": "~7.2"
+    "php": "~7.2|~8.0"
   },
   "require-dev": {
     "phpstan/phpstan": "^0.12.86",
     "squizlabs/php_codesniffer": "^3.6.0",
-    "phpunit/phpunit": "~8.5.15",
+    "phpunit/phpunit": "~9.5",
     "ecomdev/magento2-test-essentials": "dev-main"
   },
   "license": [
@@ -21,7 +21,7 @@
   "repositories": {
     "magento": {
       "type": "composer",
-      "url": "https://repo.magento.com/"
+      "url": "https://mirror.mage-os.org"
     }
   },
   "autoload": {
@@ -42,5 +42,10 @@
     "phpcbf": "phpcbf",
     "phpstan": "phpstan analyze src",
     "test": "phpunit tests"
+  },
+  "config": {
+    "allow-plugins": {
+      "magento/composer-dependency-version-audit-plugin": false
+    }
   }
 }
