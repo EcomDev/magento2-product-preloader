@@ -30,7 +30,7 @@ jobs:
       - uses: php-actions/composer@v6
         with:
           php_version: ${{ matrix.php-version }}
-          args: --prefer-dist
+          args: --prefer-dist --ignore-platform-reqs
 
       - uses: php-actions/composer@v6
         with:
