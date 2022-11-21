@@ -1,0 +1,38 @@
+name: PHP Composer
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [7.4, 8.0, 8.1]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ matrix.php-version }}
+
+      - uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-version }}
+          args: --prefer-dist --ignore-platform-reqs
+
+      - uses: php-actions/composer@v6
+        with:
+          php_version: ${{ matrix.php-version }}
+          command: test
