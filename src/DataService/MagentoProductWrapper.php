@@ -35,7 +35,7 @@ class MagentoProductWrapper implements ProductWrapper
      */
     public function getSku(): string
     {
-        return $this->product->getData('sku');
+        return (string)$this->product->getData('sku');
     }
 
 
