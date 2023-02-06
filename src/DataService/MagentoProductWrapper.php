@@ -33,7 +33,7 @@ class MagentoProductWrapper implements ProductWrapper
     /**
      * {@inheritDoc}
      */
-    public function getSku(): string
+    public function getSku(): ?string
     {
         return $this->product->getData('sku');
     }
