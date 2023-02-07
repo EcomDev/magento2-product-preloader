@@ -32,3 +32,9 @@ Given EOL of Composer 1 all new packagist packages are not published for some ti
 ```bash
 composer require ecomdev/magento2-product-data-preloader
 ```
+## Usage Example
+This [sample module](https://github.com/EcomDev/example-preloading-configurable-product) implements optimistic preloader for configurable product data without taking into account simple product status for:
+
+- Price of configurable product on product list
+- Stock availability from MSI for configurable product
+- Minimal tier price across simple products for configurable
